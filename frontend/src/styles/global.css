@@ -1,0 +1,23 @@
+body {
+    transition: 0.3s;
+    color: #4169E1;
+}
+label {
+    color: black;
+}
+
+.right-body {
+    transform: translateX(1500px);
+}
+.left-body {
+    transform: translateX(-1500px);
+}
+
+.visible-body {
+    transform: translateX(0);
+}
+
+a {
+    text-decoration: none;
+    color: var(--bs-card-title-color);
+}

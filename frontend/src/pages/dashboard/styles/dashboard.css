@@ -1,0 +1,17 @@
+.full-heigth {
+    height: 100%;
+}
+
+
+.card {
+    width: 80%;
+    max-width: 350px;
+}
+
+a.w-auto {
+    text-decoration: none;
+    transition: 0.3s;
+}
+a.w-auto:hover {
+    transform: scale(1.2);
+}

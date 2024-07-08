@@ -1,0 +1,25 @@
+.form-wrapper {
+    width: 90%;
+    max-width: 500px;
+    margin: 10vh auto;
+}
+
+.input-container {
+    transition: 0.3s;
+}
+.input-container:has(> input:focus, > textarea:focus, > select:focus) {
+    transform: scale(1.1);
+}
+
+
+button {
+    transition: transform 0.5s ease, box-shadow 0.3s ease !important; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Box shadow for depth */
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
+button:hover {
+    /* transform: rotateX(7.2turn) rotateY(3.9turn) scale(1.5); */
+    transform: rotate3d(360, 120, -90, 60deg) rotateZ(-330deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
