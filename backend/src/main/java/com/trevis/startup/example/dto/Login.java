@@ -1,3 +1,3 @@
 package com.trevis.startup.example.dto;
 
-public record Login(String login, String password) {}
+public record Login(String login, String password, boolean sucess) {}

@@ -1,7 +1,5 @@
 package com.trevis.startup.example.impl;
 
-import java.util.Random;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.trevis.startup.example.dto.UserCreate;
@@ -80,4 +78,5 @@ public class DatabaseUserService implements UserService {
     public UserData get(String username) {
         return repo.findByUsername(username);
     }
+
 }
