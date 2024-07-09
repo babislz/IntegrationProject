@@ -13,6 +13,7 @@ public class DefaultKeyService implements AuthKeyService{
 
     @Override
     public RSAPrivateKey getPrivateKey() {
+        //retorna a private key do key pair
         try
         {
             if (keyPairs == null)
@@ -30,6 +31,7 @@ public class DefaultKeyService implements AuthKeyService{
 
     @Override
     public RSAPublicKey getPublicKey() {
+        //retorna a public key do key pair
         try
         {
             if (keyPairs == null)
@@ -46,6 +48,7 @@ public class DefaultKeyService implements AuthKeyService{
     }
 
     public void createKeyPair() throws NoSuchAlgorithmException{
+        //cria um key pair para ser utilizado no jwt
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
         keyPairGenerator.initialize(2048);
         keyPairs = keyPairGenerator.generateKeyPair();

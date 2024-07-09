@@ -49,4 +49,10 @@ public class MockServiceService implements ServiceService {
 
         return paginatedServices;
     }
+
+    @Override
+    public void createService(ServiceData service) {
+        //falta implementar a função de criar serviço
+        throw new UnsupportedOperationException("Unimplemented method 'createService'");
+    }
 }

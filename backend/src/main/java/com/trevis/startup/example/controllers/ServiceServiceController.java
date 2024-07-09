@@ -7,10 +7,6 @@ import com.trevis.startup.example.dto.ServiceDTO;
 import com.trevis.startup.example.services.ServiceService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-// import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.RequestBody;
-
-
 
 @RestController
 public class ServiceServiceController {
@@ -23,6 +19,7 @@ public class ServiceServiceController {
         return new ServiceDTO("Success", validator.get(query, page, size));
     }
 
+    //falta implementar o endpoint de criar serviço
     // @PostMapping("/service")
     // public String postMethodName(@RequestBody String entity) {
         

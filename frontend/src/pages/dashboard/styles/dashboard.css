@@ -13,5 +13,5 @@ a.w-auto {
     transition: 0.3s;
 }
 a.w-auto:hover {
-    transform: scale(1.2);
+    transform: rotate(0.2turn)
 }

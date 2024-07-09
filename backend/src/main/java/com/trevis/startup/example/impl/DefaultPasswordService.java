@@ -9,16 +9,19 @@ public class DefaultPasswordService implements PasswordService {
 
     @Override
     public String applyCryptography(String password) {
+        //incripta a senha com o BCrypt
         return incryptionService.encode(password);
     }
 
     @Override
     public Boolean verifyCryptography(String password, String encryptedPassword) {
+        //verifica se a criptografia é válida
         return incryptionService.matches(password, encryptedPassword);
     }
 
     @Override
     public Boolean verifyRules(String password) {
+        //verifica se a senha segue os padrões pedidos
         Boolean hasUpper = false;
         Boolean hasLower = false;
         Boolean hasNumber = false;

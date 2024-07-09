@@ -1,5 +1,7 @@
 package com.trevis.startup.example.impl;
 
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.trevis.startup.example.dto.UserCreate;
@@ -33,22 +35,26 @@ public class DatabaseUserService implements UserService {
             user.setDepartment(newDepartment);
         }
 
-        // Random random = new Random();
+        Random random = new Random();
 
-        // String[] characters = { "0", "1", "b", "2", "4", "5", "6", "7", "8",
-        //         "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
-        //         "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w",
-        //         "x", "y", "z" };
+        String[] characters = { "0", "1", "b", "2", "4", "5", "6", "7", "8",
+                "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
+                "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w",
+                "x", "y", "z" };
 
-        // String password = "";
+        String password = "";
 
-        // for (int i = 0; i < 8; i++) {
-        //     int position = random.nextInt(0, 36);
-        //     password += characters[position];
-        // }
+        for (int i = 0; i < 8; i++) {
+            int position = random.nextInt(0, 36);
+            password += characters[position];
+        }
 
-        String encryptedPassword = passService.applyCryptography("123456");
+        System.out.println("Senha:" + password);
+
+        String encryptedPassword;
+        encryptedPassword = passService.applyCryptography(password);
         user.setPassword(encryptedPassword);
+
         repo.save(user);
 
         return true;
@@ -64,19 +70,20 @@ public class DatabaseUserService implements UserService {
 
         if (!passService.verifyRules(newPassword)) {
             return false;
+        }else{
+
+            String encryptedPassword = passService.applyCryptography(newPassword);
+            loginUser.setPassword(encryptedPassword);
+    
+            repo.save(loginUser);
+    
+            return true;
         }
 
-        String encryptedPassword = passService.applyCryptography(newPassword);
-        loginUser.setPassword(encryptedPassword);
-
-        repo.save(loginUser);
-
-        return true;
     }
 
     @Override
     public UserData get(String username) {
         return repo.findByUsername(username);
     }
-
 }

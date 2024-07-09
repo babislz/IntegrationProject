@@ -21,7 +21,10 @@ async function sendFormData(event) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({login: username, password })
+            body: JSON.stringify({
+                login: username, password,
+                sucess: false
+            })
         });
 
         
@@ -29,7 +32,10 @@ async function sendFormData(event) {
         console.log(data);
 
         if (data.sucess === true) {
+            localStorage.setItem('jwtToken', data.token)
+            localStorage.setItem('username', username);
             alert('Successful Login');
+            window.location.replace("/frontend/src/pages/dashboard/index.html")
         } else {
             alert('Login Failed');
         }
